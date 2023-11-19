@@ -1,0 +1,13 @@
+table {
+  background-color: rgb(194, 190, 190);
+}
+.btm {
+    background-color: white;
+}
+input, select, textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+p {
+    font-size: 13px;
+}
