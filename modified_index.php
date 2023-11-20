@@ -309,7 +309,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       cell.appendChild(element);
       return cell;
     }
-    // 40-REFERENCES
+    // REFERENCES
     function addInformationRow() {
       var container = document.getElementById('information-container');
 
@@ -343,19 +343,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </script>
 </head>
     <body>
-        <div style="border: 1px solid black;">
-            <p style="font-size: 15px;"><i><b>CS Form No. 212</b></i><br><em style="font-size: 13px;">Revised 2017</em></p>
-            <h1 style="text-align: center; font-family:fantasy; font-size: 70px;">Personal Data Sheet</h1> 
-        </div>
+        <h1 style="text-align: center; font-family:fantasy;">Personal Data Sheet</h1>
         <form action="sv_pds.php" method="post" class="d-flex justify-content-center align-items-center" >
             <table border="" cellpadding="5" cellspacing="0" class="">
                 <form action="sv_pds.php" method="post" class="d-flex">
                     <table border="" cellpadding="5" cellspacing="0"style="width: 100%;">
-                        <tr>
-                            <td colspan="2"><em>WARNING: Any misrepresentation made in the Personal Data Sheet and the 
-                                Work Experience Sheet shall cause the filing of administrative/criminal case/s against the person concerned.	</em>												
-                            </td>
-                        </tr>
                         <tr>
                             <th colspan="2" style="text-align: center;
                             color: rgb(233, 233, 233); 
