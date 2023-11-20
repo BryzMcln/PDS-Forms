@@ -11,16 +11,17 @@
         <h1 style="text-align: center; font-family:fantasy;">Personal Data Sheet</h1>
         <form action="" method="post" class="d-flex justify-content-center align-items-center" >
             <table border="" cellpadding="5" cellspacing="0" class="">
+                <!--================================================= 1. PERSONAL INFO ============================================================-->
                 <form action="" method="post" class="d-flex">
                     <table border="" cellpadding="5" cellspacing="0"style="width: 100%;">
                         <tr>
                             <th colspan="2" style="text-align: center;
                             color: rgb(233, 233, 233); 
                             background-color: rgb(71, 68, 68);
-                            ">I. PERSONAL INFORMATION</th> <!-- PART 1 -->
+                            ">I. PERSONAL INFORMATION</th> 
                         </tr>
                         <tr class="">
-                            <th>Name</th>  <!-- 2 -->
+                            <th>Name</th>
                                 <td colspan="4">
                                     <input type="text" name="first_name" placeholder="Firstname">
                                     <input type="text" name="middle_name" placeholder="Middlename">
@@ -29,15 +30,15 @@
                                 </td>
                         </tr>
                         <tr>
-                            <th>Date of Birth</th> <!-- 3 -->
+                            <th>Date of Birth</th>
                                 <td><input type="date" name="date_of_birth" class="text-center"></td>
                         </tr>
                         <tr>
-                            <th>Place of Birth</th> <!-- 4 -->
+                            <th>Place of Birth</th>
                                 <td><input type="text" name="place_of_birth"></td>
                         </tr>
                         <tr>
-                            <th>Sex</th> <!-- 5 -->
+                            <th>Sex</th>
                                 <td class="text-center" style="background-color: white;">
                                     <label for="male">Male</label>
                                     <input type="radio" id="male" name="gender" value="male" style="width: 10%">
@@ -46,7 +47,7 @@
                                 </td>
                         </tr>
                         <tr>
-                            <th>Civil Status</th> <!-- 6 -->
+                            <th>Civil Status</th>
                                 <td>
                                     <select name="civil_status" class="text-center">
                                         <option value="Single">Single</option>
@@ -155,7 +156,7 @@
                         </tr>
                   </table>
                 </form>            
-                <!--================================================= PART 2 ============================================================-->
+                <!--================================================= 2. FAMILY BACKGROUND ============================================================-->
                 <div><h1><br></h1></div>  
                 <form action="" method="post" class="d-flex" >
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
@@ -222,7 +223,7 @@
                         </tr>
                   </table>
                 </form>          
-                <!--================================================= PART 3 ============================================================-->
+                <!--================================================= 3. EDUCATIONAL BG ============================================================-->
                 <div><h1><br></h1></div>
                 <form action="" method="post" class="d-flex">
                   <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
@@ -335,7 +336,7 @@
                         </tr>
                 </table>
                 </form>
-                <!--================================================= PART 4 ============================================================-->
+                <!--================================================= 4. CIVIL SERVICE ============================================================-->
                 <div><h1><br></h1></div>
                 <form action="" method="post" class="d-flex">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
@@ -375,8 +376,8 @@
                         </tr>
                     </table>
                 </form> 
-                <!--================================================= PART 5 ============================================================-->
                 <button type="button" class="form-control btn btn-success" onclick="addCivilServiceRow()">Add More</button>
+                <!--================================================= 5. WORK EXPERIENCE ============================================================-->
                 <div><h1><br></h1></div>
                 <form action="" method="post" class="d-flex"> 
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
@@ -428,8 +429,8 @@
                         </tr>
                     </table>
                 </form> 
-                <!--================================================= PART 6 ============================================================-->
                 <button type="button" class="form-control btn btn-success" onclick="addExperienceRow()">Add More</button>
+                <!--================================================= 6. WORK OR INVOLVEMENT ============================================================-->
                 <div><h1><br></h1></div>
                 <form action="" method="post" class="d-flex">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
@@ -469,8 +470,8 @@
                         </tr>
                     </table>
                 </form>
-                <!--================================================= PART 7 ============================================================-->
                 <button type="button" class="form-control btn btn-success" onclick="addMoreWorkExperienceRow()">Add More</button>
+                <!--================================================= 7. L AND D ============================================================-->
                 <div><h1><br></h1></div>
                 <form action="" method="post" class="d-flex">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
@@ -512,16 +513,16 @@
                         </tr>
                     </table>
                 </form>
-                <!--================================================= PART 8 ============================================================-->
                 <button type="button" class="form-control btn btn-success" onclick="addMoreLearningDevelopmentRow()">Add More</button>
                 <div><h1><br></h1></div>
+                <!--================================================= 8. OTHER INFORMATION ============================================================-->
                 <form action="" method="post" class="d-flex">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
                         <tr>
                             <th colspan="8" style="text-align: center;
                             color: rgb(233, 233, 233); 
                             background-color: rgb(71, 68,  68);
-                            ">VII. OTHER INFORMATION
+                            ">VIII. OTHER INFORMATION
                             </th>
                         </tr>
                         <tr>
@@ -542,8 +543,7 @@
                         </tr>
                     </table>
                 </form>
-                <!--================================================= PART 9 ============================================================-->
-                <button type="button" class="form-control btn btn-success" onclick="addOtherInformationRow()">Add More</button>               
+                <button type="button" class="form-control btn btn-success" onclick="addOtherInformationRow()">Add More</button>                              
                 <div><h1><br></h1></div>
                 <form action="" method="post" class="d-flex justify-content-center align-items-center">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
@@ -660,7 +660,6 @@
                         </tr>
                     </table>
                 </form>
-                <!--================================================= PART 10 ============================================================-->
                 <form action="" method="post" class="d-flex justify-content-center align-items-center">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
                       <tr>
