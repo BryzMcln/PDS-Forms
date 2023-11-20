@@ -12,6 +12,6 @@ def open_html_file(file_path):
         print(f"An error occurred: {e}")
 
 # Replace 'path/to/your/file.html' with the actual path to your HTML file
-html_file_path = r"D:/John Bryan Pantojan Macalinao/3RD YEAR SCHOOL/3RD YEAR 1ST SEMESTER/IT8-L (ADS) ADVANCE DATABASE SYSTEMS/ACTIVITIES ADS/HRM PHP/tempo_index.html"
+html_file_path = r"index.html"
 
 open_html_file(html_file_path)
