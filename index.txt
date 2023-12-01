@@ -3,309 +3,25 @@
 <head>
   <title>Personal Data Sheet</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    table {
-      background-color: rgb(194, 190, 190);
-    }
-    .btm {
-        background-color: white;
-    }
-    input,
-    select,
-    textarea {
-      width: 100%;
-      box-sizing: border-box;
-    }
-    p {
-        font-size: 13px;
-    }
-  </style>
-  <script>
-    function addChildInput() {
-      var container = document.getElementById('children-container');
-
-      // Create an input for child name
-      var nameInput = document.createElement('input');
-      nameInput.type = 'text';
-      nameInput.name = 'children_names[]';
-      nameInput.placeholder = 'Child Name';
-
-      // Create an input for child birth date
-      var birthDateInput = document.createElement('input');
-      birthDateInput.type = 'date';
-      birthDateInput.name = 'children_birth_dates[]';
-
-      container.appendChild(nameInput);
-      container.appendChild(document.createElement('br')); 
-      container.appendChild(birthDateInput);
-      container.appendChild(document.createElement('br'));
-    }
-    // CIVIL SERVICE ROW
-    function addCivilServiceRow() {
-      var container = document.getElementById('civil-service-container');
-
-      // Create a new table row
-      var newRow = document.createElement('tr');
-
-      // Create an input for Civil Service name
-      var nameInput = createInputElement('text', 'civil_service_names[]', 'Name of Elegibility');
-
-      // Create an input for Civil Service rating
-      var ratingInput = createInputElement('text', 'civil_service_rating', 'Rating (If applicable)');
-
-      // Create an input for Civil Service examination date
-      var examDateInput = createInputElement('date', 'civil_service_examination_dates[]', '');
-
-      // Create an input for Civil Service place of examination
-      var placeExamInput = createInputElement('text', 'civil_service_place_of_examination', 'Place of Examination');
-
-      // Create an input for Civil Service license number
-      var licenseNumInput = createInputElement('number', 'civil_service_license_num', 'License Number');
-
-      // Create an input for Civil Service date of validity
-      var dateValidityInput = createInputElement('date', 'civil_service_date_of_validity', '');
-
-      // Append inputs to the new row
-      newRow.appendChild(createTableCell(nameInput));
-      newRow.appendChild(createTableCell(ratingInput));
-      newRow.appendChild(createTableCell(examDateInput));
-      newRow.appendChild(createTableCell(placeExamInput));
-      newRow.appendChild(createTableCell(licenseNumInput));
-      newRow.appendChild(createTableCell(dateValidityInput));
-
-      // Append the new row to the container
-      container.parentNode.insertBefore(newRow, container.nextSibling);
-    }
-    function createInputElement(type, name, placeholder) {
-      var input = document.createElement('input');
-      input.type = type;
-      input.name = name;
-      input.placeholder = placeholder;
-      return input;
-    }
-    function createTableCell(element) {
-      var cell = document.createElement('td');
-      cell.appendChild(element);
-      return cell;
-    }
-    // WORK EXPERIENCE 
-    function addExperienceRow() {
-      var container = document.getElementById('experience-container');
-
-      // Create a new table row
-      var newRow = document.createElement('tr');
-
-      // Create input fields and textarea
-      var datesFromInput = createInputElement('date', 'dates_from[]', 'From');
-      var datesToInput = createInputElement('date', 'dates_to[]', 'To');
-      var jobTitleTextarea = createTextareaElement('job_titles[]', 'Job Title');
-      var companyNameInput = createInputElement('text', 'company_names[]', 'Company Name');
-      var monthlySalaryInput = createInputElement('number', 'monthly_salaries[]', 'Monthly Salary');
-      var salaryGradeInput = createInputElement('text', 'salary_grades[]', 'Salary Grade');
-      var statusAppointmentInput = createInputElement('radio', 'status_appointments[]', '');
-      statusAppointmentInput.value = 'Y';
-      statusAppointmentInput.setAttribute('class', 'status-appointment-radio');
-      var statusAppointmentLabel = document.createElement('label');
-      statusAppointmentLabel.innerHTML = 'Yes';
-      statusAppointmentLabel.setAttribute('for', 'status_appointments_Y');
-
-      // Append input fields and textarea to the new row
-      newRow.appendChild(createTableCell(datesFromInput));
-      newRow.appendChild(createTableCell(datesToInput));
-      newRow.appendChild(createTableCell(jobTitleTextarea));
-      newRow.appendChild(createTableCell(companyNameInput));
-      newRow.appendChild(createTableCell(monthlySalaryInput));
-      newRow.appendChild(createTableCell(salaryGradeInput));
-      newRow.appendChild(createTableCell(statusAppointmentInput));
-      newRow.appendChild(createTableCell(statusAppointmentLabel));
-
-      // Append the new row to the container
-      container.parentNode.insertBefore(newRow, container.nextSibling);
-    }
-    function createTextareaElement(name, placeholder) {
-      var textarea = document.createElement('textarea');
-      textarea.name = name;
-      textarea.placeholder = placeholder;
-      return textarea;
-    }
-    function createInputElement(type, name, placeholder) {
-      var input = document.createElement(type === 'textarea' ? 'textarea' : 'input');
-      input.type = type;
-      input.name = name;
-      input.placeholder = placeholder;
-      return input;
-    }
-    function createTableCell(element) {
-      var cell = document.createElement('td');
-      cell.appendChild(element);
-      return cell;
-    }
-    // VOLUNTARY WORK OR CIVIC
-    function addMoreWorkExperienceRow() {
-      var container = document.getElementById('work-experience-container');
-
-      // Create a new table row
-      var newRow = document.createElement('tr');
-
-      // Create input fields and textarea
-      var organizationNameTextarea = createTextareaElement('organization_names[]', 'Name of Organization');
-      var organizationAddressTextarea = createTextareaElement('organization_addresses[]', 'Address of Organization');
-      var fromDateInput = createInputElement('date', 'from_dates[]', 'From');
-      var toDateInput = createInputElement('date', 'to_dates[]', 'To');
-      var hoursInput = createInputElement('number', 'number_of_hours[]', 'Number of Hours');
-      var positionInput = createInputElement('text', 'positions[]', 'Position/Nature of Work');
-
-      // Append input fields and textarea to the new row
-      newRow.appendChild(createTableCell(organizationNameTextarea));
-      newRow.appendChild(createTableCell(organizationAddressTextarea));
-      newRow.appendChild(createTableCell(fromDateInput));
-      newRow.appendChild(createTableCell(toDateInput));
-      newRow.appendChild(createTableCell(hoursInput));
-      newRow.appendChild(createTableCell(positionInput));
-
-      // Append the new row to the container
-      container.parentNode.insertBefore(newRow, container.nextSibling);
-    }
-    function createTextareaElement(name, placeholder) {
-      var textarea = document.createElement('textarea');
-      textarea.name = name;
-      textarea.placeholder = placeholder;
-      return textarea;
-    }
-    function createInputElement(type, name, placeholder) {
-      var input = document.createElement('input');
-      input.type = type;
-      input.name = name;
-      input.placeholder = placeholder;
-      return input;
-    }
-    function createTableCell(element) {
-      var cell = document.createElement('td');
-      cell.appendChild(element);
-      return cell;
-    }
-    // LEARNING & DEVELOPMENT
-    function addMoreLearningDevelopmentRow() {
-      var container = document.getElementById('learning-development-container');
-
-      // Create a new table row
-      var newRow = document.createElement('tr');
-
-      // Create textarea and input fields
-      var titleTextarea = createTextareaElement('learning_titles[]', 'Title of Learning & Development');
-      var fromDateInput = createInputElement('date', 'ld_from_dates[]', 'From');
-      var toDateInput = createInputElement('date', 'ld_to_dates[]', 'To');
-      var hoursInput = createInputElement('number', 'ld_number_of_hours[]', 'Number of Hours');
-      var typeTextarea = createTextareaElement('ld_types[]', 'Type of LD');
-      var conductedByTextarea = createTextareaElement('ld_conducted_by[]', 'Conducted / Sponsored by');
-
-      // Append textarea and input fields to the new row
-      newRow.appendChild(createTableCell(titleTextarea));
-      newRow.appendChild(createTableCell(fromDateInput));
-      newRow.appendChild(createTableCell(toDateInput));
-      newRow.appendChild(createTableCell(hoursInput));
-      newRow.appendChild(createTableCell(typeTextarea));
-      newRow.appendChild(createTableCell(conductedByTextarea));
-
-      // Append the new row to the container
-      container.parentNode.insertBefore(newRow, container.nextSibling);
-    }
-    function createTextareaElement(name, placeholder) {
-      var textarea = document.createElement('textarea');
-      textarea.name = name;
-      textarea.placeholder = placeholder;
-      return textarea;
-    }
-    function createInputElement(type, name, placeholder) {
-      var input = document.createElement('input');
-      input.type = type;
-      input.name = name;
-      input.placeholder = placeholder;
-      return input;
-    }
-    function createTableCell(element) {
-      var cell = document.createElement('td');
-      cell.appendChild(element);
-      return cell;
-    }
-    // OTHER INFORMATION
-    function addOtherInformationRow() {
-      var container = document.getElementById('other-information-container');
-
-      // Create a new table row
-      var newRow = document.createElement('tr');
-
-      // Create textarea
-      var specialSkillsTextarea = createTextareaElement('special_skills', 'Special Skills and Hobbies');
-      var nonAcademicDistractionTextarea = createTextareaElement('non_academic_distraction', 'Non-Academic Distraction / Recognition');
-      var associationTextarea = createTextareaElement('association_organization', 'In Association / Organization');
-
-      // Append textarea to the new row
-      newRow.appendChild(createTableCell(specialSkillsTextarea));
-      newRow.appendChild(createTableCell(nonAcademicDistractionTextarea));
-      newRow.appendChild(createTableCell(associationTextarea));
-
-      // Append the new row to the container
-      container.parentNode.insertBefore(newRow, container.nextSibling);
-    }
-    function createTextareaElement(name, placeholder) {
-      var textarea = document.createElement('textarea');
-      textarea.name = name;
-      textarea.placeholder = placeholder;
-      return textarea;
-    }
-    function createTableCell(element) {
-      var cell = document.createElement('td');
-      cell.appendChild(element);
-      return cell;
-    }
-    // REFERENCES
-    function addInformationRow() {
-      var container = document.getElementById('information-container');
-
-      // Create a new table row
-      var newRow = document.createElement('tr');
-
-      // Create textarea
-      var nameTextarea = createTextareaElement('information_names[]', 'Name');
-      var addressTextarea = createTextareaElement('information_addresses[]', 'Address');
-      var telNoTextarea = createTextareaElement('information_tel_nos[]', 'Tel. No.');
-
-      // Append input fields to the new row
-      newRow.appendChild(createTableCell(nameTextarea));
-      newRow.appendChild(createTableCell(addressTextarea));
-      newRow.appendChild(createTableCell(telNoTextarea));
-
-      // Append the new row to the container
-      container.appendChild(newRow);
-    }
-    function createTextareaElement(name, placeholder) {
-      var textarea = document.createElement('textarea');
-      textarea.name = name;
-      textarea.placeholder = placeholder;
-      return textarea;
-    }
-    function createTableCell(element) {
-      var cell = document.createElement('td');
-      cell.appendChild(element);
-      return cell;
-    }
-  </script>
+  <link rel="stylesheet" href="style.css">
+  <style></style>
+  <script src="func_scripts.js"></script>
 </head>
     <body>
         <h1 style="text-align: center; font-family:fantasy;">Personal Data Sheet</h1>
         <form action="sv_pds.php" method="post" class="d-flex justify-content-center align-items-center" >
             <table border="" cellpadding="5" cellspacing="0" class="">
-                <form action="sv_pds.php" method="post" class="d-flex">
+                <!--================================================= 1. PERSONAL INFO ============================================================-->
+                <form action="" method="post" class="d-flex">
                     <table border="" cellpadding="5" cellspacing="0"style="width: 100%;">
                         <tr>
                             <th colspan="2" style="text-align: center;
                             color: rgb(233, 233, 233); 
                             background-color: rgb(71, 68, 68);
-                            ">I. PERSONAL INFORMATION</th> <!-- PART 1 -->
+                            ">I. PERSONAL INFORMATION</th> 
                         </tr>
                         <tr class="">
-                            <th>Name</th>  <!-- 2 -->
+                            <th>Name</th>
                                 <td colspan="4">
                                     <input type="text" name="first_name" placeholder="Firstname">
                                     <input type="text" name="middle_name" placeholder="Middlename">
@@ -314,15 +30,15 @@
                                 </td>
                         </tr>
                         <tr>
-                            <th>Date of Birth</th> <!-- 3 -->
+                            <th>Date of Birth</th>
                                 <td><input type="date" name="date_of_birth" class="text-center"></td>
                         </tr>
                         <tr>
-                            <th>Place of Birth</th> <!-- 4 -->
+                            <th>Place of Birth</th>
                                 <td><input type="text" name="place_of_birth"></td>
                         </tr>
                         <tr>
-                            <th>Sex</th> <!-- 5 -->
+                            <th>Sex</th>
                                 <td class="text-center" style="background-color: white;">
                                     <label for="male">Male</label>
                                     <input type="radio" id="male" name="gender" value="male" style="width: 10%">
@@ -331,7 +47,7 @@
                                 </td>
                         </tr>
                         <tr>
-                            <th>Civil Status</th> <!-- 6 -->
+                            <th>Civil Status</th>
                                 <td>
                                     <select name="civil_status" class="text-center">
                                         <option value="Single">Single</option>
@@ -439,10 +155,10 @@
                                 <td><input type="email" name="email_address" class="" placeholder="johnny@example.com"></td>
                         </tr>
                   </table>
-              </form>            
-                <!--================================================= PART 2 ============================================================-->
+                </form>            
+                <!--================================================= 2. FAMILY BACKGROUND ========================================================-->
                 <div><h1><br></h1></div>  
-                <form action="sv_pds.php" method="post" class="d-flex" >
+                <form action="" method="post" class="d-flex" >
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
                         <tr>
                             <th colspan="2" style="text-align: center;
@@ -506,10 +222,10 @@
                                 </td>
                         </tr>
                   </table>
-              </form>          
-                <!--================================================= PART 3 ============================================================-->
+                </form>          
+                <!--================================================= 3. EDUCATIONAL BG ===========================================================-->
                 <div><h1><br></h1></div>
-                <form action="sv_pds.php" method="post" class="d-flex">
+                <form action="" method="post" class="d-flex">
                   <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
                         <tr>
                             <th colspan="2" style="text-align: center;
@@ -604,25 +320,11 @@
                                 <textarea id="exampleFormControlTextarea1" rows="3"></textarea>
                             </td>
                         </tr>
-        
-                        <tr>
-                            <th>Signature</th>
-                            <td>
-                                <label for="sign">Insert image of your signature</label>
-                                <input type="file" name="sign" id="sign">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Date</th>
-                            <td>
-                                <input type="date" name="date_rn" id="date_rn" class="text-center">
-                            </td>
-                        </tr>
                 </table>
-              </form>
-                <!--================================================= PART 4 ============================================================-->
+                </form>
+                <!--================================================= 4. CIVIL SERVICE ============================================================-->
                 <div><h1><br></h1></div>
-                <form action="sv_pds.php" method="post" class="d-flex">
+                <form action="" method="post" class="d-flex">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
                         <tr>
                             <th colspan="6" style="text-align: center;
@@ -660,10 +362,10 @@
                         </tr>
                     </table>
                 </form> 
-                <!--================================================= PART 5 ============================================================-->
                 <button type="button" class="form-control btn btn-success" onclick="addCivilServiceRow()">Add More</button>
+                <!--================================================= 5. WORK EXPERIENCE ==========================================================-->
                 <div><h1><br></h1></div>
-                <form action="sv_pds.php" method="post" class="d-flex"> 
+                <form action="" method="post" class="d-flex"> 
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
                         <tr>
                             <th colspan="8" style="text-align: center;
@@ -713,10 +415,10 @@
                         </tr>
                     </table>
                 </form> 
-                <!--================================================= PART 6 ============================================================-->
                 <button type="button" class="form-control btn btn-success" onclick="addExperienceRow()">Add More</button>
+                <!--================================================= 6. WORK OR INVOLVEMENT ======================================================-->
                 <div><h1><br></h1></div>
-                <form action="sv_pds.php" method="post" class="d-flex">
+                <form action="" method="post" class="d-flex">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
                         <tr>
                             <th colspan="8" style="text-align: center;
@@ -754,10 +456,10 @@
                         </tr>
                     </table>
                 </form>
-                <!--================================================= PART 7 ============================================================-->
                 <button type="button" class="form-control btn btn-success" onclick="addMoreWorkExperienceRow()">Add More</button>
+                <!--================================================= 7. L AND D ==================================================================-->
                 <div><h1><br></h1></div>
-                <form action="sv_pds.php" method="post" class="d-flex">
+                <form action="" method="post" class="d-flex">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
                         <tr>
                             <th colspan="8" style="text-align: center;
@@ -797,16 +499,16 @@
                         </tr>
                     </table>
                 </form>
-                <!--================================================= PART 8 ============================================================-->
                 <button type="button" class="form-control btn btn-success" onclick="addMoreLearningDevelopmentRow()">Add More</button>
                 <div><h1><br></h1></div>
-                <form action="sv_pds.php" method="post" class="d-flex">
+                <!--================================================= 8. OTHER INFORMATION ========================================================-->
+                <form action="" method="post" class="d-flex">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
                         <tr>
                             <th colspan="8" style="text-align: center;
                             color: rgb(233, 233, 233); 
                             background-color: rgb(71, 68,  68);
-                            ">VII. OTHER INFORMATION
+                            ">VIII. OTHER INFORMATION
                             </th>
                         </tr>
                         <tr>
@@ -827,10 +529,9 @@
                         </tr>
                     </table>
                 </form>
-                <!--================================================= PART 9 ============================================================-->
-                <button type="button" class="form-control btn btn-success" onclick="addOtherInformationRow()">Add More</button>               
+                <button type="button" class="form-control btn btn-success" onclick="addOtherInformationRow()">Add More</button>                              
                 <div><h1><br></h1></div>
-                <form action="sv_pds.php" method="post" class="d-flex justify-content-center align-items-center">
+                <form action="" method="post" class="d-flex justify-content-center align-items-center">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
                         <tr>
                             <th>34.</th>
@@ -945,8 +646,7 @@
                         </tr>
                     </table>
                 </form>
-                <!--================================================= PART 10 ============================================================-->
-                <form action="sv_pds.php" method="post" class="d-flex justify-content-center align-items-center">
+                <form action="" method="post" class="d-flex justify-content-center align-items-center">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
                       <tr>
                         <td style="width: 30%;">Name</td>
@@ -969,7 +669,7 @@
                     </table>
                   </form>
                   <button type="button" class="form-control btn btn-success" onclick="addInformationRow()">Add More</button>
-                <form action="sv_pds.php" method="post" class="d-flex">
+                <form action="" method="post" class="d-flex">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
                         <tr>
                             <td colspan="8" style="text-align: justify;"><b>42.</b> <em>I declare under oath that I have personally accomplished this Personal Data Sheet 
@@ -979,13 +679,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td> SUBSCRIBED AND SWORN to before me this, <input name="oath" placeholder="Write here...">
+                            <td> SUBSCRIBED AND SWORN to before me this, <textarea name="sub_sworn" placeholder="Write here..."> </textarea>
                             affiant exhibiting his/her validly issued government ID as indicated above.
                             </td>
                         </tr>
                     </table>
                 </form>
-                <form action="sv_pds.php" method="post" class="d-flex">
+                <form action="" method="post" class="d-flex">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
                         <tr>
                             <th>Person Administering Oath</th>
@@ -998,7 +698,7 @@
                     </table>
                 </form>
                 <div><h1><br></h1></div>
-                <form action="sv_pds.php" method="post" class="d-flex">
+                <form action="" method="post" class="d-flex">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
                         <tr>
                             <th colspan="2" style="text-align: center;
@@ -1018,7 +718,7 @@
                         </tr>
                     </table>
                 </form>
-                <form action="sv_pds.php" method="post" class="d-flex">
+                <form action="" method="post" class="d-flex">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
                         <tr>
                             <th class="text-center" style="width: 23%;">ID picture taken within the last 6 months 3.4cm X 3.4cm (Passport Size)</th>
@@ -1036,12 +736,12 @@
                         </tr>
                     </table>
                 </form>
-                <form action="sv_pds.php" method="post" class="d-flex">
+                <form action="" method="post" class="d-flex">
                     <table border="" cellpadding="5" cellspacing="0" style="width: 100%;">
                         <tr>
                             <th>Signature</th>
                             <td>
-                                <label for="sign">Insert image of your signature</label>
+                                <label for="sign"><em>Insert image of your signature</em></label>
                                 <input type="file" name="sign" id="sign">
                             </td>
                         </tr>
@@ -1054,16 +754,12 @@
                     </table>
                 </form>
                 <!--===SIGNATURE====-->
-                  <form action="sv_pds.php" method="post" class="d-flex justify-content-center align-items-center">
-                    <table border="" cellpadding="5" cellspacing="0" width="100%">
-                        <tr>
-                            <td colspan="2" class="text-center btm">
-                                <button type="submit" value="Submit" class="form-control btn btn-primary" 
-                                style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ; font-weight: bold;">SUBMIT</button>
-                            </td>
-                        </tr>
-                    </table>
-                </form>
+                <tr>
+                    <td colspan="2" class="text-center btm">
+                        <button type="submit" value="Submit" class="form-control btn btn-primary" 
+                        style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ; font-weight: bold;">SUBMIT</button>
+                    </td>
+                </tr>
             </table>
         </form>
     </body>
