@@ -1,13 +1,19 @@
 table {
-  background-color: rgb(194, 190, 190);
+    background-color: rgb(194, 190, 190);
+    /* table-layout: fixed; */
 }
+
 .btm {
     background-color: #ffffff;
 }
-input, select, textarea {
+
+input,
+select,
+textarea {
     width: 100%;
     box-sizing: border-box;
 }
+
 p {
     font-size: 13px;
 }
